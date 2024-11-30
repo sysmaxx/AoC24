@@ -25,6 +25,28 @@ public class DayOneTests
         Assert.Equal(142, result);
     }
     
+    [Fact]
+    public void GetSummarizedCalibrationValues_WithNewCorrectInput_ExtractSummarizedCalibrationValues()
+    {
+        // Arrange
+        var input = new Collection<string>()
+        {
+            "two1nine",
+            "eightwothree",
+            "abcone2threexyz",
+            "xtwone3four",
+            "4nineeightseven2",
+            "zoneight234",
+            "7pqrstsixteen"
+        };
+        
+        //Act
+        var result = DayOneService.GetSummarizedCalibrationValues(input);
+        
+        // Assert
+        Assert.Equal(281, result);
+    }
+    
     [Theory]
     [InlineData("abc123def", new char[] { '1', '2', '3' })]
     [InlineData("456", new char[] { '4', '5', '6' })]
@@ -36,6 +58,19 @@ public class DayOneTests
     {
         // Act
         var result = DayOneService.GetDigits(input);
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+    
+
+    [Theory]
+    [InlineData("one two three four five six seven eight nine zero", "1 2 3 4 5 6 7 8 9 0")]
+    [InlineData("onehdbfjhsdbfzero", "1hdbfjhsdbf0")]
+    public void ReplaceSpelledDigits_WithCorrectInput_ReplacesSpelledDigitsWithNumericDigits(string input, string expected)
+    {
+        // Act
+        var result = DayOneService.ReplaceSpelledDigits(input);
 
         // Assert
         Assert.Equal(expected, result);
