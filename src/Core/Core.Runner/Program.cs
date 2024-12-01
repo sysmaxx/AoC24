@@ -1,17 +1,11 @@
-﻿using Common;
-using Days.Example;
+﻿using Common.File;
+using Common.Text;
 using Days.One;
 
-Console.WriteLine("Hello, AoC24!");
+WelcomeWriter.WriteMessage();
 
-Console.WriteLine("Example Day: " + 
-                  DayExampleService
-                      .GetSummarizedCalibrationValues(FileUtilities.ReadLines("./Resources/inputExampleOne.txt")));
+ResultWriter<int>.WriteResult("1", "1", () => DayOneService
+    .GetSummarizedDistance(FileUtilities.ReadLines("./Resources/inputDayOne.txt")));
 
-Console.WriteLine("Day One Part 1: " + 
-                  DayOneService
-                      .GetSummarizedDistance(FileUtilities.ReadLines("./Resources/inputDayOne.txt")));
-                                           
-Console.WriteLine("Day One Part 2: " + 
-                  DayOneService
-                      .GetMultipliedSummarizedDistance(FileUtilities.ReadLines("./Resources/inputDayOne.txt")));
+ResultWriter<int>.WriteResult("1", "2", () => DayOneService
+    .GetMultipliedSummarizedDistance(FileUtilities.ReadLines("./Resources/inputDayOne.txt")));

@@ -1,4 +1,4 @@
-namespace Common;
+namespace Common.File;
 
 public static class FileUtilities
 {
@@ -16,12 +16,12 @@ public static class FileUtilities
             throw new ArgumentException("File path cannot be null or empty.", nameof(filePath));
         }
 
-        if (!File.Exists(filePath))
+        if (!System.IO.File.Exists(filePath))
         {
             throw new FileNotFoundException($"The file '{filePath}' does not exist.");
         }
 
         // Use File.ReadLines to lazily read lines from the file
-        return File.ReadLines(filePath);
+        return System.IO.File.ReadLines(filePath);
     }
 }
