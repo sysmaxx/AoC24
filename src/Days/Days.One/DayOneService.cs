@@ -58,7 +58,7 @@ public static class DayOneService
     {
         const string separator = "   ";
 
-        if (string.IsNullOrWhiteSpace(input) && input.Contains(separator) == false)
+        if (string.IsNullOrWhiteSpace(input) || input.Contains(separator) == false)
         {
             throw new ArgumentException("Input does not in correct format", nameof(input));
         }

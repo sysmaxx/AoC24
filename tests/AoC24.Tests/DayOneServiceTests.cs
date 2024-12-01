@@ -64,6 +64,7 @@ public class DayOneServiceTests
         Assert.Equal(expectedRight, result.Item2);
     }
     
+    [Fact]
     public void GetValuePairs_InvalidInput_ThrowsArgumentException()
     {
         // Arrange
