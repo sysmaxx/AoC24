@@ -6,6 +6,10 @@
 /// </summary>
 public static class DayOneService
 {
+    
+    /// <summary>
+    /// Part 1 of the puzzle
+    /// </summary>
     public static int GetSummarizedDistance(IEnumerable<string> inputDate)
     {
         var distanceList = inputDate.Select(GetListValuePairs).ToArray();
@@ -26,6 +30,31 @@ public static class DayOneService
         return totalDistance;
     }
 
+    /// <summary>
+    /// Part 2 of the puzzle
+    /// </summary>
+    public static int GetMultipliedSummarizedDistance(IEnumerable<string> inputDate)
+    {
+        var distanceList = inputDate.Select(GetListValuePairs).ToArray();
+        var firstColumnDistances = distanceList.Select(x => x.Item1).Order().ToList();
+        var secondColumnDistances = distanceList.Select(x => x.Item2).Order().ToList();
+
+        var totalDistance = 0;
+
+        foreach (var firstColumn in firstColumnDistances)
+        {
+            int.TryParse(firstColumn, out var firstColumnInt);
+            var secondColumnCount = secondColumnDistances.Count(x => x == firstColumn);
+
+            totalDistance += firstColumnInt * secondColumnCount;
+        }
+
+        return totalDistance;
+    }
+
+    /// <summary>
+    /// Split the input into two values
+    /// </summary>
     internal static (string, string) GetListValuePairs(string input)
     {
         var split = input.Split("   ");

@@ -27,6 +27,27 @@ public class DayOneServiceTests
         Assert.Equal(11, result);
     }
     
+    [Fact]
+    public void GetMultipliedSummarizedDistance_WithCorrectInput_ExtractSummarizedDistance()
+    {
+        // Arrange
+        var input = new Collection<string>()
+        {
+            "3   4",
+            "4   3",
+            "2   5",
+            "1   3",
+            "3   9",
+            "3   3"
+        };
+
+        //Act
+        var result = DayOneService.GetMultipliedSummarizedDistance(input);
+
+        // Assert
+        Assert.Equal(31, result);
+    }
+    
     [Theory]
     [InlineData("3   4", "3", "4")]
     [InlineData("10   20", "10", "20")]
