@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Runtime.InteropServices;
 using Days.One;
 using Xunit;
 
@@ -49,11 +50,10 @@ public class DayOneServiceTests
     }
     
     [Theory]
-    [InlineData("3   4", "3", "4")]
-    [InlineData("10   20", "10", "20")]
-    [InlineData("123   456", "123", "456")]
-    [InlineData("left   right", "left", "right")]
-    public void GetValuePairs_ValidInput_ReturnsCorrectTuple(string input, string expectedLeft, string expectedRight)
+    [InlineData("3   4", 3, 4)]
+    [InlineData("10   20", 10, 20)]
+    [InlineData("123   456", 123, 456)]
+    public void GetValuePairs_ValidInput_ReturnsCorrectTuple(string input, int expectedLeft, int expectedRight)
     {
         // Act
         var result = DayOneService.GetValuePairs(input);
@@ -63,12 +63,12 @@ public class DayOneServiceTests
         Assert.Equal(expectedRight, result.Item2);
     }
     
-    [Fact]
-    public void GetValuePairs_InvalidInput_ThrowsArgumentException()
+    [Theory]
+    [InlineData("3 4")]
+    [InlineData("a b")]
+    [InlineData("3 4 5")]
+    public void GetValuePairs_InvalidInput_ThrowsArgumentException(string input)
     {
-        // Arrange
-        var input = "3 4";
-
         // Act
         void Act() => DayOneService.GetValuePairs(input);
 

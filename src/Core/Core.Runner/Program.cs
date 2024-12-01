@@ -9,6 +9,3 @@ ResultWriter<int>.WriteResult("1", "1", () => DayOneService
 
 ResultWriter<int>.WriteResult("1", "2", () => DayOneService
     .GetMultipliedSummarizedDistance(FileUtilities.ReadLines("./Resources/inputDayOne.txt")));
-
-ResultWriter<int>.WriteResult("1", "2 v2", () => DayOneService
-    .GetMultipliedSummarizedDistance2(FileUtilities.ReadLines("./Resources/inputDayOne.txt")));

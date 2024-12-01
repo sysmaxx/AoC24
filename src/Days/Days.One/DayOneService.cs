@@ -15,18 +15,8 @@ public static class DayOneService
         var firstColumnDistances = distanceList.Select(x => x.Item1).Order().ToList();
         var secondColumnDistances = distanceList.Select(x => x.Item2).Order().ToList();
 
-        var totalDistance = 0;
-
         // Pair up the numbers and calculate the distances
-        for (int i = 0; i < firstColumnDistances.Count; i++)
-        {
-            int.TryParse(firstColumnDistances[i], out var firstPoint);
-            int.TryParse(secondColumnDistances[i], out var secondPoint);
-
-            totalDistance += Math.Abs(firstPoint - secondPoint);
-        }
-
-        return totalDistance;
+        return firstColumnDistances.Select((t, i) => Math.Abs(t - secondColumnDistances[i])).Sum();
     }
 
     /// <summary>
@@ -43,7 +33,7 @@ public static class DayOneService
 
         // Calculate the total distance using the grouped counts
         var totalDistance = distanceList
-            .Select(x => (First: int.TryParse(x.Item1, out var value) ? value : 0, Count: secondColumnCounts.GetValueOrDefault(x.Item1, 0)))
+            .Select(x => (First: x.Item1, Count: secondColumnCounts.GetValueOrDefault(x.Item1, 0)))
             .Sum(pair => pair.First * pair.Count);
 
         return totalDistance;
@@ -52,16 +42,25 @@ public static class DayOneService
     /// <summary>
     /// Split the input into two values
     /// </summary>
-    internal static (string, string) GetValuePairs(string input)
+    internal static (int, int) GetValuePairs(string input)
     {
         const string separator = "   ";
 
-        if (string.IsNullOrWhiteSpace(input) || input.Contains(separator) == false)
+        if (string.IsNullOrWhiteSpace(input) || 
+            input.Contains(separator) == false)
         {
             throw new ArgumentException("Input does not in correct format", nameof(input));
         }
-
+        
         var split = input.Split(separator);
-        return (split[0], split[1]);
+        
+        if(split.Length != 2 || 
+           !int.TryParse(split[0], out var firstValue) || 
+           !int.TryParse(split[1], out var secondValue))
+        {
+            throw new ArgumentException("Input does not in correct format", nameof(input));
+        }
+        
+        return (firstValue, secondValue);
     }
 }
