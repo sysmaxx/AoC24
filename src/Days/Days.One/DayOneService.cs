@@ -20,10 +20,8 @@ public static class DayOneService
         // Pair up the numbers and calculate the distances
         for (int i = 0; i < firstColumnDistances.Count; i++)
         {
-            int.TryParse(firstColumnDistances[i], out var firstPoint);
-            int.TryParse(secondColumnDistances[i], out var secondPoint);
 
-            totalDistance += Math.Abs(firstPoint - secondPoint);
+            totalDistance += Math.Abs(firstColumnDistances[i] - secondColumnDistances[i]);
         }
 
         return totalDistance;
@@ -36,16 +34,19 @@ public static class DayOneService
     {
         var distanceList = inputDate.Select(GetValuePairs).ToArray();
         var firstColumnDistances = distanceList.Select(x => x.Item1).Order();
-        var secondColumnDistances = distanceList.Select(x => x.Item2).ToArray();
 
+        var duplicatesCount = distanceList.Select(x => x.Item2)
+                                .GroupBy(n => n)
+                                .ToDictionary(g => g.Key, g => g.Count());
+                                
         var totalDistance = 0;
 
         foreach (var firstColumn in firstColumnDistances)
         {
-            int.TryParse(firstColumn, out var firstColumnInt);
-            var secondColumnCount = secondColumnDistances.Count(x => x == firstColumn);
 
-            totalDistance += firstColumnInt * secondColumnCount;
+            var secondColumnCount = duplicatesCount.TryGetValue(firstColumn, out int t2) ? t2 : 0;
+
+            totalDistance += firstColumn * secondColumnCount;
         }
 
         return totalDistance;
@@ -54,7 +55,7 @@ public static class DayOneService
     /// <summary>
     /// Split the input into two values
     /// </summary>
-    internal static (string, string) GetValuePairs(string input)
+    internal static (int, int) GetValuePairs(string input)
     {
         const string separator = "   ";
 
@@ -64,6 +65,6 @@ public static class DayOneService
         }
 
         var split = input.Split(separator);
-        return (split[0], split[1]);
+        return (Convert.ToInt32(split[0]), Convert.ToInt32(split[1]));
     }
 }
