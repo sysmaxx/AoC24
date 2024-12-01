@@ -54,13 +54,26 @@ public class DayOneServiceTests
     [InlineData("123   456", "123", "456")]
     [InlineData("   ", "", "")]
     [InlineData("left   right", "left", "right")]
-    public void GetListValuePairs_ValidInput_ReturnsCorrectTuple(string input, string expectedLeft, string expectedRight)
+    public void GetValuePairs_ValidInput_ReturnsCorrectTuple(string input, string expectedLeft, string expectedRight)
     {
         // Act
-        var result = DayOneService.GetListValuePairs(input);
+        var result = DayOneService.GetValuePairs(input);
 
         // Assert
         Assert.Equal(expectedLeft, result.Item1);
         Assert.Equal(expectedRight, result.Item2);
     }
+    
+    public void GetValuePairs_InvalidInput_ThrowsArgumentException()
+    {
+        // Arrange
+        var input = "3 4";
+
+        // Act
+        void Act() => DayOneService.GetValuePairs(input);
+
+        // Assert
+        Assert.Throws<ArgumentException>(Act);
+    }
+    
 }

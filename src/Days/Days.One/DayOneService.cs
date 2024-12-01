@@ -6,13 +6,12 @@
 /// </summary>
 public static class DayOneService
 {
-    
     /// <summary>
     /// Part 1 of the puzzle
     /// </summary>
     public static int GetSummarizedDistance(IEnumerable<string> inputDate)
     {
-        var distanceList = inputDate.Select(GetListValuePairs).ToArray();
+        var distanceList = inputDate.Select(GetValuePairs).ToArray();
         var firstColumnDistances = distanceList.Select(x => x.Item1).Order().ToList();
         var secondColumnDistances = distanceList.Select(x => x.Item2).Order().ToList();
 
@@ -35,9 +34,9 @@ public static class DayOneService
     /// </summary>
     public static int GetMultipliedSummarizedDistance(IEnumerable<string> inputDate)
     {
-        var distanceList = inputDate.Select(GetListValuePairs).ToArray();
-        var firstColumnDistances = distanceList.Select(x => x.Item1).Order().ToList();
-        var secondColumnDistances = distanceList.Select(x => x.Item2).Order().ToList();
+        var distanceList = inputDate.Select(GetValuePairs).ToArray();
+        var firstColumnDistances = distanceList.Select(x => x.Item1).Order();
+        var secondColumnDistances = distanceList.Select(x => x.Item2).ToArray();
 
         var totalDistance = 0;
 
@@ -55,9 +54,16 @@ public static class DayOneService
     /// <summary>
     /// Split the input into two values
     /// </summary>
-    internal static (string, string) GetListValuePairs(string input)
+    internal static (string, string) GetValuePairs(string input)
     {
-        var split = input.Split("   ");
+        const string separator = "   ";
+
+        if (string.IsNullOrWhiteSpace(input) && input.Contains(separator) == false)
+        {
+            throw new ArgumentException("Input does not in correct format", nameof(input));
+        }
+
+        var split = input.Split(separator);
         return (split[0], split[1]);
     }
 }
