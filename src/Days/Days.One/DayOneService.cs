@@ -32,21 +32,19 @@ public static class DayOneService
     /// <summary>
     /// Part 2 of the puzzle
     /// </summary>
-    public static int GetMultipliedSummarizedDistance(IEnumerable<string> inputDate)
+    public static int GetMultipliedSummarizedDistance(IEnumerable<string> inputData)
     {
-        var distanceList = inputDate.Select(GetValuePairs).ToArray();
-        var firstColumnDistances = distanceList.Select(x => x.Item1).Order();
-        var secondColumnDistances = distanceList.Select(x => x.Item2).ToArray();
+        var distanceList = inputData.Select(GetValuePairs).ToArray();
 
-        var totalDistance = 0;
+        // Group the second column distances and count occurrences
+        var secondColumnCounts = distanceList
+            .GroupBy(x => x.Item2)
+            .ToDictionary(g => g.Key, g => g.Count());
 
-        foreach (var firstColumn in firstColumnDistances)
-        {
-            int.TryParse(firstColumn, out var firstColumnInt);
-            var secondColumnCount = secondColumnDistances.Count(x => x == firstColumn);
-
-            totalDistance += firstColumnInt * secondColumnCount;
-        }
+        // Calculate the total distance using the grouped counts
+        var totalDistance = distanceList
+            .Select(x => (First: int.TryParse(x.Item1, out var value) ? value : 0, Count: secondColumnCounts.GetValueOrDefault(x.Item1, 0)))
+            .Sum(pair => pair.First * pair.Count);
 
         return totalDistance;
     }

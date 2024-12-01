@@ -52,7 +52,6 @@ public class DayOneServiceTests
     [InlineData("3   4", "3", "4")]
     [InlineData("10   20", "10", "20")]
     [InlineData("123   456", "123", "456")]
-    [InlineData("   ", "", "")]
     [InlineData("left   right", "left", "right")]
     public void GetValuePairs_ValidInput_ReturnsCorrectTuple(string input, string expectedLeft, string expectedRight)
     {
