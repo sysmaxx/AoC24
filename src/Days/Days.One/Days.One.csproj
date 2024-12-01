@@ -1,16 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Common\Common.csproj"/>
-        <ProjectReference Include="..\..\Days\Days.Example\Days.Example.csproj"/>
-        <ProjectReference Include="..\..\Days\Days.One\Days.One.csproj"/>
+      <None Update="Resources\inputDayOne.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="AoC24.Tests" />
     </ItemGroup>
 
 </Project>
