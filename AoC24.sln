@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7EE64E99-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Days", "Days", "{E01E4953-CC66-4C1C-B735-9E32CDAFD273}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Days.One", "src\Days\Days.One\Days.One.csproj", "{7B6FAC52-38DC-4131-B940-3A9415B267A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Days.Example", "src\Days\Days.Example\Days.Example.csproj", "{7B6FAC52-38DC-4131-B940-3A9415B267A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Runner", "src\Core\Core.Runner\Core.Runner.csproj", "{E2CB70BA-61DA-49F9-B2BC-99D1533202C2}"
 EndProject

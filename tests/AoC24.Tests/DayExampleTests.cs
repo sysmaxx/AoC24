@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using Days.One;
+using Days.Example;
 using Xunit;
 
 namespace AoE24.Tests;
 
-public class DayOneTests
+public class DayExampleTests
 {
     [Fact]
     public void GetSummarizedCalibrationValues_WithCorrectInput_ExtractSummarizedCalibrationValues()
@@ -19,7 +19,7 @@ public class DayOneTests
         };
         
         //Act
-        var result = DayOneService.GetSummarizedCalibrationValues(input);
+        var result = DayExampleService.GetSummarizedCalibrationValues(input);
         
         // Assert
         Assert.Equal(142, result);
@@ -41,7 +41,7 @@ public class DayOneTests
         };
         
         //Act
-        var result = DayOneService.GetSummarizedCalibrationValues(input);
+        var result = DayExampleService.GetSummarizedCalibrationValues(input);
         
         // Assert
         Assert.Equal(281, result);
@@ -57,20 +57,19 @@ public class DayOneTests
     public void GetDigits_ReturnsCorrectDigits(string input, char[] expected)
     {
         // Act
-        var result = DayOneService.GetDigits(input);
+        var result = DayExampleService.GetDigits(input);
 
         // Assert
         Assert.Equal(expected, result);
     }
     
-
     [Theory]
     [InlineData("one two three four five six seven eight nine zero", "1 2 3 4 5 6 7 8 9 0")]
     [InlineData("onehdbfjhsdbfzero", "1hdbfjhsdbf0")]
     public void ReplaceSpelledDigits_WithCorrectInput_ReplacesSpelledDigitsWithNumericDigits(string input, string expected)
     {
         // Act
-        var result = DayOneService.ReplaceSpelledDigits(input);
+        var result = DayExampleService.ReplaceSpelledDigits(input);
 
         // Assert
         Assert.Equal(expected, result);

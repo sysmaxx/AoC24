@@ -1,6 +1,8 @@
 ﻿using Common;
-using Days.One;
+using Days.Example;
 
 Console.WriteLine("Hello, AoC24!");
 
-Console.WriteLine("DayOne: " + DayOneService.GetSummarizedCalibrationValues(FileUtilities.ReadLines("./Resources/inputDayOne.txt")));
+Console.WriteLine("DayOne: " + 
+                  DayExampleService
+                      .GetSummarizedCalibrationValues(FileUtilities.ReadLines("./Resources/inputExampleOne.txt")));

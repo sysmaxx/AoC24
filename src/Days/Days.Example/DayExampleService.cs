@@ -1,8 +1,12 @@
 using System.Text.RegularExpressions;
 
-namespace Days.One;
-//https://adventofcode.com/2023/day/1#part2
-public static class DayOneService
+namespace Days.Example;
+
+/// <summary>
+/// This class contains the logic for the first day of the Advent of Code 2023.
+/// Puzzle: https://adventofcode.com/2023/day/1#part2
+/// </summary>
+public static class DayExampleService
 {
     public static int GetSummarizedCalibrationValues(IEnumerable<string> calibrationValues)
     {

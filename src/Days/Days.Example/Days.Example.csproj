@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Resources\inputDayOne.txt">
+      <None Update="Resources\inputExampleOne.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
