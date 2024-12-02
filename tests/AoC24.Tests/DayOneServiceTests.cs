@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.Runtime.InteropServices;
 using Days.One;
 using Xunit;
 
@@ -8,7 +7,7 @@ namespace AoE24.Tests;
 public class DayOneServiceTests
 {
     [Fact]
-    public void GetSummerizedDistance_WithCorrectInput_ExtractSummarizedDistance()
+    public void GetSummarizedDistance_WithCorrectInput_ExtractSummarizedDistance()
     {
         // Arrange
         var input = new Collection<string>()
@@ -75,5 +74,4 @@ public class DayOneServiceTests
         // Assert
         Assert.Throws<ArgumentException>(Act);
     }
-    
 }

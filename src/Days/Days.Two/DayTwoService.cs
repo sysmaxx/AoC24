@@ -5,21 +5,19 @@
 /// </summary>
 public static class DayTwoService
 {
+    /// <summary>
+    /// Get the number of safety levels.
+    /// </summary>
     public static int GetNumberOfSafetyLevels(IEnumerable<string> inputData)
-    {
-        var rows = inputData.Select(x => GetRowValues(x).ToArray()).ToArray();
+        => inputData.Select(GetRowValues).Sum(row => IsSafe(row) ? 1 : 0);
 
-        return rows.Sum(row => IsSafe(row) ? 1 : 0);
-    }
-    
+    /// <summary>
+    /// Get the number of safety levels with dampener.
+    /// </summary>
     public static int GetNumberOfSafetyLevelsWithDampener(IEnumerable<string> inputData)
-    {
-        var rows = inputData.Select(x => GetRowValues(x).ToArray()).ToArray();
+        => inputData.Select(GetRowValues).Sum(row => IsSafeWithDampener(row) ? 1 : 0);
 
-        return rows.Sum(row => IsSafeWithDampener(row) ? 1 : 0);
-    }
-
-    private static bool IsSafe(int[] levels)
+    internal static bool IsSafe(int[] levels)
     {
         if (levels.Length < 2)
             return false; // A valid report needs at least two levels to compare.
@@ -45,7 +43,7 @@ public static class DayTwoService
         return true;
     }
 
-    private static bool IsSafeWithDampener(int[] levels)
+    internal static bool IsSafeWithDampener(int[] levels)
     {
         // First, check if the report is already safe without the dampener.
         if (IsSafe(levels))
@@ -74,10 +72,13 @@ public static class DayTwoService
 
         return modifiedLevels.ToArray();
     }
-    
-    internal static IEnumerable<int> GetRowValues(string input)
+
+    private static int[] GetRowValues(string input)
     {
         const char separator = ' ';
-        return input.Split(separator).Select(int.Parse);
+
+        return input.Split(separator)
+            .Select(int.Parse)
+            .ToArray();
     }
 }

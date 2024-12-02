@@ -12,4 +12,8 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="AoC24.Tests" />
+    </ItemGroup>
+
 </Project>
