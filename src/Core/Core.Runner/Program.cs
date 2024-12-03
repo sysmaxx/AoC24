@@ -1,6 +1,7 @@
 ﻿using Common.File;
 using Common.Text;
 using Days.One;
+using Days.Three;
 using Days.Two;
 
 WelcomeWriter.WriteMessage();
@@ -16,3 +17,11 @@ ResultWriter<int>.WriteResult("2", "1", () => DayTwoService
 
 ResultWriter<int>.WriteResult("2", "2", () => DayTwoService
     .GetNumberOfSafetyLevelsWithDampener(FileUtilities.ReadLines("./Resources/inputDayTwo.txt")));
+
+ResultWriter<int>.WriteResult("3", "1", () => DayThreeService
+    .GetSumOfCorruptedInput(FileUtilities.ReadLines("./Resources/inputDayThree.txt")));
+
+ResultWriter<int>.WriteResult("3", "2", () => DayThreeService
+    .GetSumOfCorruptedInputWithControl(FileUtilities.ReadLines("./Resources/inputDayThree.txt")));
+
+
