@@ -1,5 +1,6 @@
 ﻿using Common.File;
 using Common.Text;
+using Days.Four;
 using Days.One;
 using Days.Three;
 using Days.Two;
@@ -23,5 +24,11 @@ ResultWriter<int>.WriteResult("3", "1", () => DayThreeService
 
 ResultWriter<int>.WriteResult("3", "2", () => DayThreeService
     .GetSumOfCorruptedInputWithControl(FileUtilities.ReadLines("./Resources/inputDayThree.txt")));
+
+ResultWriter<int>.WriteResult("4", "1", () => DayFourService
+    .CountXmasWord(FileUtilities.ReadLines("./Resources/inputDayFour.txt")));
+
+ResultWriter<int>.WriteResult("4", "2", () => DayFourService
+    .CountXmasWordInShape(FileUtilities.ReadLines("./Resources/inputDayFour.txt")));
 
 
