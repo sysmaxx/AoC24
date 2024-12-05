@@ -54,19 +54,4 @@ public class DayFourServiceTests
         // Assert
         Assert.Equal(9, result);
     }
-
-    private static string v = @"
-
-.M.S......
-..A..MSMS.
-.M.S.MAA..
-..A.ASMSM.
-.M.S.M....
-..........
-S.S.S.S.S.
-.A.A.A.A..
-M.M.M.M.M.
-..........
-
-";
 }

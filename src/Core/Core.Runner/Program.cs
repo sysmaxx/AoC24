@@ -1,5 +1,6 @@
 ﻿using Common.File;
 using Common.Text;
+using Days.Five;
 using Days.Four;
 using Days.One;
 using Days.Three;
@@ -12,7 +13,7 @@ ResultWriter<int>.WriteResult("1", "1", () => DayOneService
 
 ResultWriter<int>.WriteResult("1", "2", () => DayOneService
     .GetMultipliedSummarizedDistance(FileUtilities.ReadLines("./Resources/inputDayOne.txt")));
-    
+
 ResultWriter<int>.WriteResult("2", "1", () => DayTwoService
     .GetNumberOfSafetyLevels(FileUtilities.ReadLines("./Resources/inputDayTwo.txt")));
 
@@ -31,4 +32,14 @@ ResultWriter<int>.WriteResult("4", "1", () => DayFourService
 ResultWriter<int>.WriteResult("4", "2", () => DayFourService
     .CountXmasWordInShape(FileUtilities.ReadLines("./Resources/inputDayFour.txt")));
 
+ResultWriter<int>.WriteResult("5", "1", () => DayFiveService
+    .SumMiddlePages(
+        FileUtilities.ReadLines("./Resources/inputDayFivePageOrderingRules.txt"),
+        FileUtilities.ReadLines("./Resources/inputDayFiveUpdatePages.txt")
+    ));
 
+ResultWriter<int>.WriteResult("5", "2", () => DayFiveService
+    .SumSortedMiddlePages(
+        FileUtilities.ReadLines("./Resources/inputDayFivePageOrderingRules.txt"),
+        FileUtilities.ReadLines("./Resources/inputDayFiveUpdatePages.txt")
+    ));
