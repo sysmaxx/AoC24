@@ -3,6 +3,7 @@ using Common.Text;
 using Days.Five;
 using Days.Four;
 using Days.One;
+using Days.Seven;
 using Days.Six;
 using Days.Three;
 using Days.Two;
@@ -51,4 +52,12 @@ ResultWriter<int>.WriteResult("6", "1", () => DaySixService.GetTotalUniqueVisite
 
 ResultWriter<int>.WriteResult("6", "2", () => DaySixPartTwoService.FindLoopObstructionCount(
     FileUtilities.ReadLines("./Resources/inputDaySix.txt")
+));
+
+ResultWriter<long>.WriteResult("7", "1", () => DaySevenPartOneService.CalculateTotalCalibrationResult(
+    FileUtilities.ReadLines("./Resources/inputDaySeven.txt")
+));
+
+ResultWriter<long>.WriteResult("7", "2", () => DaySevenPartTwoService.CalculateTotalCalibrationResultWithConcatenation(
+    FileUtilities.ReadLines("./Resources/inputDaySeven.txt")
 ));
