@@ -3,6 +3,7 @@ using Common.Text;
 using Days.Five;
 using Days.Four;
 using Days.One;
+using Days.Six;
 using Days.Three;
 using Days.Two;
 
@@ -43,3 +44,11 @@ ResultWriter<int>.WriteResult("5", "2", () => DayFiveService
         FileUtilities.ReadLines("./Resources/inputDayFivePageOrderingRules.txt"),
         FileUtilities.ReadLines("./Resources/inputDayFiveUpdatePages.txt")
     ));
+
+ResultWriter<int>.WriteResult("6", "1", () => DaySixService.GetTotalUniqueVisitedPositions(
+    FileUtilities.ReadLines("./Resources/inputDaySix.txt")
+));
+
+ResultWriter<int>.WriteResult("6", "2", () => DaySixPartTwoService.FindLoopObstructionCount(
+    FileUtilities.ReadLines("./Resources/inputDaySix.txt")
+));
