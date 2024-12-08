@@ -11,6 +11,7 @@
         <ProjectReference Include="..\..\..\Common.Text\Common.Text.csproj" />
         <ProjectReference Include="..\..\Common.File\Common.File.csproj" />
         <ProjectReference Include="..\..\Common.Text\Common.Text.csproj" />
+        <ProjectReference Include="..\..\Days\Days.Eight\Days.Eight.csproj" />
         <ProjectReference Include="..\..\Days\Days.Example\Days.Example.csproj"/>
         <ProjectReference Include="..\..\Days\Days.Five\Days.Five.csproj" />
         <ProjectReference Include="..\..\Days\Days.Four\Days.Four.csproj" />

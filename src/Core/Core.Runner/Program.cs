@@ -1,5 +1,6 @@
 ﻿using Common.File;
 using Common.Text;
+using Days.Eight;
 using Days.Five;
 using Days.Four;
 using Days.One;
@@ -60,4 +61,12 @@ ResultWriter<long>.WriteResult("7", "1", () => DaySevenPartOneService.CalculateT
 
 ResultWriter<long>.WriteResult("7", "2", () => DaySevenPartTwoService.CalculateTotalCalibrationResultWithConcatenation(
     FileUtilities.ReadLines("./Resources/inputDaySeven.txt")
+));
+
+ResultWriter<int>.WriteResult("8", "1", () => DayEightPartOneService.CountAntinodes(
+    FileUtilities.ReadLines("./Resources/inputDayEight.txt")
+));
+
+ResultWriter<int>.WriteResult("8", "2", () => DayEightPartTwoService.CountAntinodes(
+    FileUtilities.ReadLines("./Resources/inputDayEight.txt")
 ));
