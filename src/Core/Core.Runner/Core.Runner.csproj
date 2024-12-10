@@ -19,6 +19,7 @@
         <ProjectReference Include="..\..\Days\Days.One\Days.One.csproj"/>
         <ProjectReference Include="..\..\Days\Days.Seven\Days.Seven.csproj" />
         <ProjectReference Include="..\..\Days\Days.Six\Days.Six.csproj" />
+        <ProjectReference Include="..\..\Days\Days.Ten\Days.Ten.csproj" />
         <ProjectReference Include="..\..\Days\Days.Three\Days.Three.csproj" />
         <ProjectReference Include="..\..\Days\Days.Two\Days.Two.csproj" />
     </ItemGroup>
