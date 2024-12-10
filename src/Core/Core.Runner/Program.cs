@@ -3,6 +3,7 @@ using Common.Text;
 using Days.Eight;
 using Days.Five;
 using Days.Four;
+using Days.Nine;
 using Days.One;
 using Days.Seven;
 using Days.Six;
@@ -69,4 +70,12 @@ ResultWriter<int>.WriteResult("8", "1", () => DayEightPartOneService.CountAntino
 
 ResultWriter<int>.WriteResult("8", "2", () => DayEightPartTwoService.CountAntinodes(
     FileUtilities.ReadLines("./Resources/inputDayEight.txt")
+));
+
+ResultWriter<long>.WriteResult("9", "1", () => DayNinePartOneService.GetFileSystemCheckSum(
+    FileUtilities.ReadLines("./Resources/inputDayNine.txt")
+));
+
+ResultWriter<long>.WriteResult("9", "2", () => DayNinePartTwoService.GetFileSystemCheckSum(
+    FileUtilities.ReadLines("./Resources/inputDayNine.txt")
 ));
