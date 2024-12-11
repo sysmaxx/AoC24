@@ -1,6 +1,7 @@
 ﻿using Common.File;
 using Common.Text;
 using Days.Eight;
+using Days.Eleven;
 using Days.Five;
 using Days.Four;
 using Days.Nine;
@@ -76,3 +77,7 @@ ResultWriter<long>.WriteResult("10", "1", () => DayTenPartOneService.GetTrailhea
 
 ResultWriter<long>.WriteResult("10", "2", () => DayTenPartTwoService.GetTrailheadRatings(
     FileUtilities.ReadLines("./Resources/inputDayTen.txt")));
+
+const string dayElevenInputData = "3028 78 973951 5146801 5 0 23533 857";
+ResultWriter<long>.WriteResult("11", "1", () => DayElevenPartOneService.GetStoneCount(dayElevenInputData));
+ResultWriter<long>.WriteResult("11", "2", () => DayElevenPartOneService.GetStoneCount(dayElevenInputData, 75));
